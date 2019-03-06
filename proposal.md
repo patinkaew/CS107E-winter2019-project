@@ -43,7 +43,7 @@ together into a working system.
 | Mar 10-11 | | Weekend|
 | Mar 12 | | Project lab 2|
 | Mar 16-17 | | Weekend|
-| Mar 18 | | Final week starts|
+| Mar 18 | | Final week |
 | Mar 22| Presentation Day! <br>Code due at 9 am <br> Presentation at 9.30 am| |
 
 
