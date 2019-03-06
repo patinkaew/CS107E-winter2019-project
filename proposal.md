@@ -18,7 +18,7 @@ We suggest you try to get all the major hardware components working by the
 first week. That will leave the following week for putting the components
 together into a working system.
 
--> #Project Proposal <-
+## -> Project Proposal <-
 
 **Project title**:
 
