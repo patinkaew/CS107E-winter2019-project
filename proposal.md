@@ -31,6 +31,7 @@ together into a working system.
 **Major tasks**
 
 **Timeline**
+
 | Date | Todo | Note |
 | --- | ----- | ---|
 | Mar 5 | Brainstorm ideas | Project lab 1|
