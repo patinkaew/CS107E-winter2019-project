@@ -35,7 +35,7 @@ together into a working system.
 | Date | Todo | Note |
 | --- | ----- | ---|
 | Mar 5 | Brainstorm ideas | Project lab 1|
-| Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic, I2C)|
+| Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic)|
 | Mar 8 | Decide topic and write proposal | |
 | Mar 9 | Proposal due | |
 
