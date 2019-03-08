@@ -28,6 +28,12 @@ together into a working system.
 
 (Extension)
 
+* Measure height of plants using ultrasonic sensor
+* Adjust the light intensity using light sensor and light source
+* Store data log from sensor in pi memory
+* Make graphic interface to show data in table/histogram graph on screen
+* Send data via wifi/bluetooth
+
 **Hardware**
 
 * 3V submersible pump
@@ -35,9 +41,9 @@ together into a working system.
 * Weather sensor (BME280)
 * Soil moisture sensor
 
-(Additional)
+(Extension)
 
-* ESP32 wifi module
+* ESP32 wifi module / Bluetooth
 * Ultranocis sensor
 
 **Order list and Funds requested**
@@ -49,7 +55,13 @@ together into a working system.
 **Major tasks**
 
 * Build structure (sensor and raspberry pi mount) and watering system (pump, water container, tubing)
-* Write code for sensors and actuator (water system)
+* Write code for sensors (Soil moisure, BME280)
+* Write code for actuator (water pump)
+
+(Extension)
+* Write code for ultrasonic array
+* Write code for light sensor
+* Write code for graphic library
 * Write code for wifi communication and interface
 
 **Timeline**
