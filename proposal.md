@@ -33,6 +33,7 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 * Store data log from sensor in pi memory
 * Make graphic interface to show data in table/histogram graph on screen
 * Send data via wifi / bluetooth
+* Capture a moment of your plant
 
 **Hardware**
 
@@ -65,6 +66,7 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 * Write code for light sensor
 * Write code for graphic library
 * Write code for wifi communication and interface
+* Write code for camera
 
 **Timeline**
 
