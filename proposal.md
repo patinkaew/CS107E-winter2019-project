@@ -48,3 +48,5 @@ together into a working system.
 
 
 **References and resources**
+
+For rough reference please see project reference sheet: http://bit.ly/2XCvHlX
