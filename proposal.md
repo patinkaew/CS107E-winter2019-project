@@ -26,7 +26,7 @@ together into a working system.
 
 **Description**
 
-(Extension)
+We're building a Smart Garden system to help those who are traveling (or just people who don't have a green thumb) better take take of their plants. The core functionality of our project will be to detect the humidity of plant soil and pump water in whenever the soil starts to get dry. After we complete this core functionality, we'll then go into the extensions listed below.
 
 * Measure height of plants using ultrasonic sensor
 * Adjust the light intensity using light sensor and light source
