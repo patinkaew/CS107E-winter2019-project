@@ -55,17 +55,17 @@ together into a working system.
 | Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic) |
 | Mar 8 | Decide topic and write proposal | |
 | Mar 9 | Proposal due | |
-| Mar 10 | Finish ordering parts <br> Start designing hardware | Weekend |
-| Mar 11 | * Finalize hardware design * Build prototype | Weekend |
+| Mar 10 | Finish ordering parts <br> Start designing hardware <br> Write sensor modules <br> Write wifi modules | Weekend |
+| Mar 11 | Finalize hardware design | Weekend |
 | Mar 12 | | Project lab 2 |
-| Mar 13 | | |
-| Mar 14 | | |
-| Mar 15 | | |
+| Mar 13 | Start building hardware| All parts should arrive |
+| Mar 14 | Finish sensor modules <br> Finish wifi modules| |
+| Mar 15 | Write system code (Combine modules)| |
 | Mar 16 | | Weekend |
-| Mar 17 | | Weekend |
-| Mar 18 | | Final week |
-| Mar 19 | | Final week |
-| Mar 20 | | Final week |
+| Mar 17 | Finish assembling hardware <br> Finish system code| Weekend |
+| Mar 18 | Testing | Final week |
+| Mar 19 | Testing | Final week |
+| Mar 20 | Testing | Final week |
 | Mar 21 | Final system testing | Final week |
 | Mar 22| Presentation Day! <br>Code due at 9 am <br> Presentation at 9.30 am| |
 
