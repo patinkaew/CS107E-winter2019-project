@@ -43,14 +43,16 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 
 (Extension)
 
+* Ultrasonic sensors
+* Light sensor and light source
 * ESP32 wifi module / Bluetooth
-* Ultranocis sensor
 
 **Order list and Funds requested**
 
 * [3-4.5V mini pump 5pcs $12.99 on Amazon](https://www.amazon.com/JIUWU-Horizontal-Micro-Submersible-3-4-5V/dp/B01N0Y4R83/ref=sr_1_1?keywords=3v+water+pump&qid=1552029359&s=lawn-garden&sr=1-1)
 * [Vinyl tubing ID 7mm 3.2 feet long $7.94 on Amazon](https://www.amazon.com/Yobett-Vinyl-Tubing-3-2-0-39-Cooling/dp/B00IXBZDD2/ref=sr_1_4?keywords=7mm+tubing&qid=1552029964&s=industrial&sr=1-4)
-* [ESP32 $10.99 on Amazon](https://www.amazon.com/gp/product/B0718T232Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+* (Brought) [ESP32 $10.99 on Amazon](https://www.amazon.com/gp/product/B0718T232Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
+* (Brought) BME280
 
 **Major tasks**
 
