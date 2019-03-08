@@ -20,13 +20,20 @@ together into a working system.
 
 # Project Proposal
 
-**Project title**:
+**Project title**: Automated Garden Watering and Monitoring System
 
 **Team members**: Patin Inkaew (patinkaew), Arjun Karanam (QuantumArjun)
 
 **Description**
 
+
 **Hardware**
+
+* 3V submersible pump
+* Tube and water container
+* Weather sensor (BME280)
+* Soil moisture sensor
+* ESP32 wifi module
 
 **Funds requested**
 
