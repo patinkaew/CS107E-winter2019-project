@@ -39,21 +39,27 @@ together into a working system.
 
 **Major tasks**
 
+* Build structure (sensor and raspberry pi mount) and watering system (pump, water container, tubing)
+* Write code for sensors and actuator
+* Write code for wifi communication and interface
+
 **Timeline**
 
 | Date | Todo | Note |
-| --- | ----- | ---|
-| Mar 5 | Brainstorm ideas | Project lab 1|
-| Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic)|
+| --- | ----- | --- |
+| Mar 5 | Brainstorm ideas | Project lab 1 |
+| Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic) |
 | Mar 8 | Decide topic and write proposal | |
 | Mar 9 | Proposal due | |
-| Mar 10-11 | | Weekend|
-| Mar 12 | | Project lab 2|
-| Mar 16-17 | | Weekend|
+| Mar 10 | Finish ordering parts <br> Start designing hardware | Weekend |
+| Mar 11 | Finalize hardware design <br> Build prototype | Weekend |
+| Mar 12 | | Project lab 2 |
+| Mar 16-17 | | Weekend |
 | Mar 18 | | Final week |
 | Mar 22| Presentation Day! <br>Code due at 9 am <br> Presentation at 9.30 am| |
 
 
 **References and resources**
+[3-4.5V mini pump](https://www.amazon.com/JIUWU-Horizontal-Micro-Submersible-3-4-5V/dp/B01N0Y4R83/ref=sr_1_1?keywords=3v+water+pump&qid=1552029359&s=lawn-garden&sr=1-1)
 
 For rough reference please see project reference sheet: http://bit.ly/2XCvHlX
