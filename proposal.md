@@ -44,7 +44,7 @@ together into a working system.
 **Major tasks**
 
 * Build structure (sensor and raspberry pi mount) and watering system (pump, water container, tubing)
-* Write code for sensors and actuator
+* Write code for sensors and actuator (water system)
 * Write code for wifi communication and interface
 
 **Timeline**
