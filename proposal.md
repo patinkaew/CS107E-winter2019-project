@@ -55,6 +55,7 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 * [Vinyl tubing ID 7mm 3.2 feet long $7.94 on Amazon](https://www.amazon.com/Yobett-Vinyl-Tubing-3-2-0-39-Cooling/dp/B00IXBZDD2/ref=sr_1_4?keywords=7mm+tubing&qid=1552029964&s=industrial&sr=1-4)
 * (Brought) [ESP32 $10.99 on Amazon](https://www.amazon.com/gp/product/B0718T232Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1)
 * (Brought) BME280
+* Soil moisrure sensor
 
 **Major tasks**
 
