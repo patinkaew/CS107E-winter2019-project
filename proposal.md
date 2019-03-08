@@ -57,7 +57,7 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 **Major tasks**
 
 * Build structure (sensor and raspberry pi mount) and watering system (pump, water container, tubing)
-* Write code for sensors (Soil moisure, BME280)
+* Write code for sensors (soil moisure, BME280)
 * Write code for actuator (water pump)
 
 (Extension)
