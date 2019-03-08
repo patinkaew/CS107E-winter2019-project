@@ -26,6 +26,7 @@ together into a working system.
 
 **Description**
 
+(Extension)
 
 **Hardware**
 
@@ -33,7 +34,11 @@ together into a working system.
 * Tube and water container
 * Weather sensor (BME280)
 * Soil moisture sensor
+
+(Additional)
+
 * ESP32 wifi module
+* Ultranocis sensor
 
 **Order list and Funds requested**
 
@@ -52,7 +57,8 @@ together into a working system.
 | Date | Todo | Note |
 | --- | ----- | --- |
 | Mar 5 | Brainstorm ideas | Project lab 1 |
-| Mar 6-7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic) |
+| Mar 6 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic) |
+| Mar 7 | Preliminary hardware testings | P (Wifi) & A (Ultrasonic) |
 | Mar 8 | Decide topic and write proposal | |
 | Mar 9 | Proposal due @ 6 pm| |
 | Mar 10 | Finish ordering parts <br> Start designing hardware <br> Write sensor modules <br> Write wifi modules | Weekend |
@@ -67,7 +73,7 @@ together into a working system.
 | Mar 19 | Testing | Final week |
 | Mar 20 | Testing | Final week |
 | Mar 21 | Final system testing | Final week |
-| Mar 22| Presentation Day! <br>Code due @ 9 am <br> Presentation @ 9-11.30 am| |
+| Mar 22| Presentation Day! <br>Code due @ 9 am <br>Presentation @ 9-11.30 am| |
 
 
 **References and resources**
