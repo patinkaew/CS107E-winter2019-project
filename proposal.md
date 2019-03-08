@@ -56,7 +56,7 @@ together into a working system.
 | Mar 8 | Decide topic and write proposal | |
 | Mar 9 | Proposal due | |
 | Mar 10 | Finish ordering parts <br> Start designing hardware | Weekend |
-| Mar 11 | Finalize hardware design <br> Build prototype | Weekend |
+| Mar 11 | * Finalize hardware design * Build prototype | Weekend |
 | Mar 12 | | Project lab 2 |
 | Mar 13 | | |
 | Mar 14 | | |
