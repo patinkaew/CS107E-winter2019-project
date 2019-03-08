@@ -20,7 +20,7 @@ together into a working system.
 
 # Project Proposal
 
-**Project title**: Automated Garden Watering and Monitoring System
+**Project title**: Smart Indoor Garden
 
 **Team members**: Patin Inkaew (patinkaew), Arjun Karanam (QuantumArjun)
 
@@ -33,7 +33,8 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 * Store data log from sensor in pi memory
 * Make graphic interface to show data in table/histogram graph on screen
 * Send data via wifi / bluetooth
-* Capture a moment of your plant
+* Take a photo of your plant
+* Other playful features (light/sound/movement)
 
 **Hardware**
 
