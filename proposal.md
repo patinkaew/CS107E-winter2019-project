@@ -58,9 +58,9 @@ together into a working system.
 | Mar 10 | Finish ordering parts <br> Start designing hardware | Weekend |
 | Mar 11 | Finalize hardware design <br> Build prototype | Weekend |
 | Mar 12 | | Project lab 2 |
-| Mar 13 | | Project lab 2 |
-| Mar 14 | | Project lab 2 |
-| Mar 15 | | Project lab 2 |
+| Mar 13 | | |
+| Mar 14 | | |
+| Mar 15 | | |
 | Mar 16 | | Weekend |
 | Mar 17 | | Weekend |
 | Mar 18 | | Final week |
