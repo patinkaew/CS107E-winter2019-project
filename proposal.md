@@ -58,14 +58,18 @@ together into a working system.
 | Mar 10 | Finish ordering parts <br> Start designing hardware | Weekend |
 | Mar 11 | Finalize hardware design <br> Build prototype | Weekend |
 | Mar 12 | | Project lab 2 |
-| Mar 16-17 | | Weekend |
+| Mar 13 | | Project lab 2 |
+| Mar 14 | | Project lab 2 |
+| Mar 15 | | Project lab 2 |
+| Mar 16 | | Weekend |
+| Mar 17 | | Weekend |
 | Mar 18 | | Final week |
+| Mar 19 | | Final week |
+| Mar 20 | | Final week |
+| Mar 21 | Final system testing | Final week |
 | Mar 22| Presentation Day! <br>Code due at 9 am <br> Presentation at 9.30 am| |
 
 
 **References and resources**
-
-
-
 
 For rough reference please see project reference sheet: http://bit.ly/2XCvHlX
