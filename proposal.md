@@ -32,7 +32,7 @@ We're building a Smart Garden system to help those who are traveling (or just pe
 * Adjust the light intensity using light sensor and light source
 * Store data log from sensor in pi memory
 * Make graphic interface to show data in table/histogram graph on screen
-* Send data via wifi/bluetooth
+* Send data via wifi / bluetooth
 
 **Hardware**
 
