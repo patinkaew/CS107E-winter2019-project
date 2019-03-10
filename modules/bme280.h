@@ -1,7 +1,7 @@
 #ifndef BME280_H
 #define BME280_H
 
-#include<stdbool.h>
+#include <stdbool.h>
 
 #define SEA_LEVEL_PRESSURE 10
 
