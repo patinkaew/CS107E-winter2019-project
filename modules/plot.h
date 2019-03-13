@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 enum axes{
-    X = 0; Y = 1;
+    X = 0, Y = 1
 };
 
 typedef struct{
@@ -73,4 +73,6 @@ void plot_add_data_point(point_t data_point, int marker, color_t point_color);
 
 void plot_remove_data_point(point_t data_point);
 
-#endif PLOT_H
+void plot_update_screen();
+
+#endif //PLOT_H

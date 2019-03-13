@@ -31,4 +31,4 @@ uintptr_t* vector_clear(uintptr_t* v);
 
 void vector_print(uintptr_t* v);
 
-#endif VECTOR_H
+#endif //close VECTOR_H
