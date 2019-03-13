@@ -1,3 +1,3 @@
 Cool Things in our project
 
-![plot1](pics/plot1)
+![plot1](../master/pics/plot1)
