@@ -29,12 +29,12 @@ typedef struct{
     bool        show_x_axis;
     char*       x_axis_label;
     bool        show_x_axis_label;
-    int         x_scaling;
+    int         x_scaling; //number of pixels equal to one unit of data
 
     bool        show_y_axis;
     char*       y_axis_label;
     bool        show_y_axis_label;
-    int         y_scaling;
+    int         y_scaling; //number of pixels equal to one unit of data
 }plot_info_t;
 
 void plot_init(plot_info_t info);
