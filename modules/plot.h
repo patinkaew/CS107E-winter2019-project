@@ -2,8 +2,10 @@
 #define PLOT_H
 
 #include "gl.h"
+#include "dataset.h"
 #include "markers.h"
 #include <stdbool.h>
+#include <stdint.h>
 
 enum axes{
     X = 0, Y = 1
@@ -13,6 +15,11 @@ typedef struct{
     int x;
     int y;
 }point_t;
+
+typedef struct{
+    float x;
+    float y;
+}data_point_t;
 
 typedef struct{
     point_t     gl_min;
@@ -69,9 +76,9 @@ void plot_hide_axis_label(enum axes axis);
 
 void plot_set_axis_scaling(int scaling, enum axes axis);
 
-void plot_add_data_point(point_t data_point, int marker, color_t point_color);
+void plot_add_dataset(uintptr_t* data_set, int marker_style, color_t marker_color, color_t line_color);
 
-void plot_remove_data_point(point_t data_point);
+void plot_remove_dataset(uintptr_t* data_set);
 
 void plot_update_screen();
 

@@ -92,6 +92,15 @@ uintptr_t* vector_insert(uintptr_t* v, int index, uintptr_t val){ //insert val a
     }
 }
 
+void vector_set(uintptr_t* v, int index, uintptr_t val){
+    struct vector_info* info_ptr = (struct vector_info *)v - 1;
+    int size = info_ptr -> size;
+    if(index >= size || index < 0){ //out of range
+        return;
+    }
+    *(v + index) = val;
+}
+
 uintptr_t vector_remove(uintptr_t* v, int index){ //remove element from given index, return removed value
     struct vector_info* info_ptr = (struct vector_info *)v - 1;
     int size = info_ptr -> size;

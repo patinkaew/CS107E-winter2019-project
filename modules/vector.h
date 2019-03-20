@@ -25,6 +25,8 @@ uintptr_t* vector_add(uintptr_t* v, uintptr_t val);
 
 uintptr_t* vector_insert(uintptr_t* v, int index, uintptr_t val);
 
+void vector_set(uintptr_t* v, int index, uintptr_t val);
+
 uintptr_t vector_remove(uintptr_t* v, int index);
 
 uintptr_t* vector_clear(uintptr_t* v);
