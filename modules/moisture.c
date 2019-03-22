@@ -1,9 +1,22 @@
-#include "gpio.c"
-#include "timer.c"
-#include "i2c.c"
+#include "gpio.h"
+#include "timer.h"
+#include "i2c.h"
+#include "printf.h"
 
 
-void main (void) {
+void readSoil (void) {
+    gpio_init();
+    timer_init();
+    uart_init();
+
+    i2c_init();
+
+    while(1) { 
+        int value;
+        value = soilChip_read_reg(0x07);
+        printf ("Moisture: %d", value);
+    }
+
 
 }
 //Read i2c fo the soil moisture sensor
@@ -18,14 +31,12 @@ bool begin(uint8_t addr, int8_t flow, bool reset)
 
     if(_flow != -1) ::pinMode(_flow, INPUT);
 
-    _i2c_init();
 
     if(reset){
-        SWReset();
         delay(500);
     }
 
-    uint8_t c = this->read8(SEESAW_STATUS_BASE, SEESAW_STATUS_HW_ID);
+    uint8_t c = 8;
     if (c != SEESAW_HW_ID_CODE) {
       return false;
     }
@@ -36,7 +47,6 @@ bool begin(uint8_t addr, int8_t flow, bool reset)
 uint32_t digitalReadBulk(uint32_t pins)
 {
     uint8_t buf[4];
-    this->read(SEESAW_GPIO_BASE, SEESAW_GPIO_BULK, buf, 4);
     uint32_t ret = ((uint32_t)buf[0] << 24) | ((uint32_t)buf[1] << 16) | ((uint32_t)buf[2] << 8) | (uint32_t)buf[3];
     return ret & pins;
 }
@@ -45,16 +55,8 @@ uint32_t digitalReadBulk(uint32_t pins)
 uint32_t digitalReadBulkB(uint32_t pins)
 {
     uint8_t buf[8];
-    this->read(SEESAW_GPIO_BASE, SEESAW_GPIO_BULK, buf, 8);
     uint32_t ret = ((uint32_t)buf[4] << 24) | ((uint32_t)buf[5] << 16) | ((uint32_t)buf[6] << 8) | (uint32_t)buf[7];
     return ret & pins;
-}
-
-
-// Reads I2C Value for the Seesaw
-uint8_t getI2CAddr()
-{
-  return this->read8(SEESAW_EEPROM_BASE, SEESAW_EEPROM_I2C_ADDR);
 }
 
 
@@ -62,7 +64,6 @@ uint8_t getI2CAddr()
 float getTemp()
 {
     uint8_t buf[4];
-    this->read(SEESAW_STATUS_BASE, SEESAW_STATUS_TEMP, buf, 4, 1000);
     int32_t ret = ((uint32_t)buf[0] << 24) | ((uint32_t)buf[1] << 16) | ((uint32_t)buf[2] << 8) | (uint32_t)buf[3];
     return (1.0/(1UL << 16)) * ret;
 }
