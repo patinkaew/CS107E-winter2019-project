@@ -5,7 +5,9 @@
 #include "strings.h"
 #include <stdint.h>
 #include "gpio.h"
-#include "waterlevel"
+#include "gl.h"
+#include "waterlevel.h"
+#include "infographic.h"
 
 #define LINE_LEN 80
 
@@ -21,8 +23,8 @@ static const command_t commands[] = {
     {"reboot",   "<cmd> resets the pi and reboots the bootloader", cmd_reboot},
     {"peek",   "<cmd> displays the value at a memory address", cmd_peek},
     {"poke",   "<cmd> modifies the value at a memory address", cmd_poke},
-    {"graph",   "<cmd> displays a real-time graph of water levels remaining", cmd_waterGraph}, 
-    {"stop",   "<cmd> stop autowatering the plant", cmd_stopWatering}, 
+    {"graph",   "<cmd> displays a real-time graph of water levels remaining", cmd_waterGraph},
+    {"stop",   "<cmd> stop autowatering the plant", cmd_stopWatering},
     {"start",   "<cmd> starts auto watering the plant", cmd_startWatering},
     {"water",   "<cmd> checks the current water levels remaining", cmd_checkWater},
     {"moisture",   "<cmd> checks the current moisture of the plant", cmd_checkMoisture},
@@ -31,7 +33,7 @@ static const command_t commands[] = {
 };
 
 //Reboot Command - "resets the pi and reboots the bootloader"
-int cmd_reboot(int argc, const char *argv[]) 
+int cmd_reboot(int argc, const char *argv[])
 {
     uart_putchar('\04'); //Exits the program
     pi_reboot(); //Reboots the pi
@@ -109,18 +111,18 @@ int cmd_poke(int argc, const char* argv[]) {
 }
 
 //Echo command - "echos the user input to the screen"
-int cmd_echo(int argc, const char *argv[]) 
+int cmd_echo(int argc, const char *argv[])
 {
-    for (int i = 1; i < argc; ++i) 
+    for (int i = 1; i < argc; ++i)
         shell_printf("\n%s ", argv[i]);
     shell_printf("\n");
     return 0;
 }
 
 //Help Command - prints a list of commands or description of cmd
-int cmd_help(int argc, const char *argv[]) 
+int cmd_help(int argc, const char *argv[])
 {   shell_printf("\n");
-    
+
     //Case where no arguments were given and all commands need to be printed out
     if (argc == 1) {
         int n = sizeof(commands) / sizeof(commands[0]);
@@ -177,8 +179,8 @@ void shell_readline(char buf[], int bufsize)
 
     //Keeps running until user hits enter or limit is reached
     while (currChar != '\n' && counter <= bufsize - 2) {
-        
-        
+
+
         if (currChar == 0x08)
         {
             //Runs shell bell if backspaces when at the beginning
@@ -241,13 +243,14 @@ int shell_evaluate(const char *line)
 void shell_run(void)
 {   shell_printf("\n");
     shell_printf("Welcome to the CS107E shell. Remember to type on your PS/2 keyboard!\n");
-    while (1) 
+    while (1)
     {
         char line[LINE_LEN];
 
         shell_printf("Pi> ");
         shell_readline(line, sizeof(line));
         shell_evaluate(line);
+
     }
 }
 
@@ -283,42 +286,40 @@ static int tokenize(const char *line, char *array[])
     return ntokens;
 }
 
-int cmd_waterGraph(int argc, const char *argv[]) 
+int cmd_waterGraph(int argc, const char *argv[])
+{
+    infographic_update_screen();
+    gl_swap_buffer();
+    return 0;
+}
+
+int cmd_stopWatering(int argc, const char *argv[])
 {
     //
     return 0;
 }
 
-int cmd_stopWatering(int argc, const char *argv[]) 
+int cmd_startWatering(int argc, const char *argv[])
 {
     //
     return 0;
 }
 
-int cmd_startWatering(int argc, const char *argv[]) 
+int cmd_checkWater(int argc, const char *argv[])
+{
+    shell_printf("The Current Water Level is: %d", waterlevel_get_percent());
+    return 0;
+}
+
+int cmd_checkMoisture(int argc, const char *argv[])
 {
     //
     return 0;
 }
 
-int cmd_checkWater(int argc, const char *argv[]) 
+int cmd_burst(int argc, const char *argv[])
 {
-    int height = waterlevel_get_tank_height();
-    shell_printf("The Current Water Height is: %d", height);
+    gpio_write(GPIO_PIN17, 1);
+    timer_delay(1);
     return 0;
 }
-
-int cmd_checkMoisture(int argc, const char *argv[]) 
-{
-    //
-    return 0;
-}
-
-int cmd_burst(int argc, const char *argv[]) 
-{
-    gpio_set_output(17);
-    timer_delay(2);
-    gpio_set_input(17);
-    return 0;
-}
-
