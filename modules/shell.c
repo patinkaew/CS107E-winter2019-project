@@ -196,10 +196,6 @@ void shell_readline(char buf[], int bufsize)
 {
     int counter = 0;
     char currChar = keyboard_read_next();
-    if(currChar == 0){
-        buf[0] = '\0';
-        return;
-    }
 
     //Keeps running until user hits enter or limit is reached
     while (currChar != '\n' && counter <= bufsize - 2) {
@@ -275,9 +271,9 @@ void shell_run(void)
         char line[LINE_LEN];
 
         if(keyboard_has_char()){
-            shell_printf("Pi> ");
             shell_readline(line, sizeof(line));
             shell_evaluate(line);
+            shell_printf("Pi> ");
         }
         infographic_update_screen();
         gl_swap_buffer();
