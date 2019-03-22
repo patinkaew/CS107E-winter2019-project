@@ -30,33 +30,33 @@ void infographic_init(infographic_info_t info){
             dev -> laptime_gl_max = dev -> gl_max;
         break;
     }
-    if(dev -> use_table){
+    /*if(dev -> use_table){
         table_init();
-    }
+    }*/
     if(dev -> use_graph){
         graph_info_t plot_info = {{(dev -> graph_gl_min).x + 8, (dev -> graph_gl_min).y + 8},
                                     {(dev -> graph_gl_max).x - 8, (dev -> graph_gl_max).y - 8}, true,
-                                    {((dev -> graph_gl_min).x + (dev -> graph_gl_max).x) / 2,
-                                        ((dev -> graph_gl_min).y + (dev -> graph_gl_max).y) / 2}, true, 1,
+                                    {(dev -> graph_gl_min).x + 816, (dev -> graph_gl_max).y - 16}, true, 1,
                                     "", false, true, "", false, 4, true, "", false, 4};
-        printf("%d", (dev -> graph_gl_min).x + 8);
         graph_init(plot_info);
+        graph_enable_auto_shift();
     }
 }
 
 bool infographic_update_screen(){
+    gl_clear(GL_BLACK);
     bool rslt = true;
-    if(dev -> use_table){
-        rslt = rslt && table_update_screen();
-    }
+    /*if(dev -> use_table){
+        //rslt = rslt && table_update_screen();
+    }*/
     if(dev -> use_graph){
         rslt = rslt && graph_update_screen();
     }
 
     if(dev -> use_laptime){
-        char time_buf[10];
+        char time_buf[20];
         unsigned int curr_time = timer_get_ticks() / 1000000;
-        snprintf(time_buf, 10, "%02d:%02d", curr_time/60, curr_time%60);
+        snprintf(time_buf, 20, "LAP TIME: %02d:%02d", curr_time/60, curr_time%60);
         gl_draw_string((dev -> laptime_gl_min).x + 4, (dev -> laptime_gl_min).y + 4, time_buf, GL_WHITE);
     }
 

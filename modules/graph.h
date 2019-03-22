@@ -185,4 +185,6 @@ void graph_remove_dataset(uintptr_t* data_set_x, uintptr_t* data_set_y);
  */
 bool graph_update_screen();
 
+void graph_enable_auto_shift();
+
 #endif //GRAPH_H

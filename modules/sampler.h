@@ -6,6 +6,4 @@
 
 void sampler_init(unsigned int interval);
 
-
-
 #endif //close SAMPLER_H

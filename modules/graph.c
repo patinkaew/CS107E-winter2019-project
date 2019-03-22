@@ -14,6 +14,7 @@
  */
 static color_t bg_color = GL_BLACK, info_color = GL_WHITE;
 static graph_info_t *graph_info;
+static bool auto_shift = false;
 
 static struct plot_set_t{
     int marker_style;
@@ -194,7 +195,7 @@ static inline void graph_update_drawspace(){
     }
 }
 
-static bool graph_update_data_plot(struct plot_set_t *plot_set){
+static bool graph_update_data_plot(struct plot_set_t *plot_set, bool *need_shift){
     uintptr_t* data_x = ((data_set_t*)(plot_set -> data_set_x)) -> list;
     uintptr_t* data_y = ((data_set_t*)(plot_set -> data_set_y)) -> list;
     int data_size = vector_size(data_x);
@@ -222,8 +223,9 @@ static bool graph_update_data_plot(struct plot_set_t *plot_set){
                     int x = marker_x + (j % marker_width);
                     int y = marker_y + (j / marker_width);
                     if(is_in_bound(x, y)){
-
                         gl_draw_pixel(x, y, plot_set -> marker_color);
+                    }else{
+                        *need_shift = true;
                     }
                 }
             }
@@ -246,9 +248,21 @@ bool graph_update_screen(){
     gl_draw_rect((graph_info->gl_min).x, (graph_info->gl_min).y, (graph_info->gl_max).x, (graph_info->gl_max).y, bg_color);
     graph_update_drawspace();
     int size = vector_size(plot_sets);
+    bool need_shift = false;
     for(int i = 0; i < size; i++){
-        rslt = rslt && graph_update_data_plot((struct plot_set_t*)vector_get(plot_sets, i));
+        bool temp = false;
+        rslt = rslt && graph_update_data_plot((struct plot_set_t*)vector_get(plot_sets, i), &temp);
+        need_shift = need_shift || temp;
+    }
+
+    if(need_shift && auto_shift){
+        point_t new_origin = {(graph_info -> gl_origin).x - (5 * graph_info -> x_scaling), (graph_info -> gl_origin).y};
+        graph_set_origin(new_origin, graph_info -> origin_marker);
     }
 
     return rslt;
+}
+
+void graph_enable_auto_shift(){
+    auto_shift = true;
 }
