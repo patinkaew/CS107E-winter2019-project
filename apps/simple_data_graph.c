@@ -3,23 +3,18 @@
 #include "timer.h"
 #include "console.h"
 #include "printf.h"
-<<<<<<< HEAD
 #include "shell.h"
 #include "gl.h"
-#include "modules/dataset.h"
-#include "modules/graph.h"
-#include "modules/waterlevel.h"
 #include "interrupts.h"
-#include "modules/sampler.h"
-#include "modules/graph.h"
-#include "modules/infographic.h"
-=======
-#include "modules/moisture.h"
->>>>>>> b7df82336604a77702c31716d8dc44c4702cda95
+#include "../modules/dataset.h"
+#include "../modules/graph.h"
+#include "../modules/waterlevel.h"
+#include "../modules/sampler.h"
+#include "../modules/graph.h"
+#include "../modules/infographic.h"
 
 /*void main(void){
     uart_init();
-<<<<<<< HEAD
     //keyboard_init(GPIO_PIN25, GPIO_PIN26);
     console_init(20, 40);
     //shell_init(printf);
@@ -66,18 +61,3 @@ void main(void){
     graph_add_dataset(dataset_get_dataset(0), dataset_get_dataset(2),2, GL_BLUE, GL_GREEN);
 
     infographic_update_screen();
-
-=======
-    timer_init();
-
-    readSoil();
-    // waterlevel_init(GPIO_PIN3, GPIO_PIN2);
-    // waterlevel_calibrate_tank_height();
-    // printf("tank_height: %d %\n", waterlevel_get_tank_height());
-    // timer_delay(2);
-    // while(1){
-    //     printf("level: %d percent: %d %\n", waterlevel_get_level(), waterlevel_get_percent());
-    //     timer_delay_ms(250);
-    //}
->>>>>>> b7df82336604a77702c31716d8dc44c4702cda95
-}
