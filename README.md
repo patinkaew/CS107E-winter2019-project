@@ -18,6 +18,6 @@ Water Graph (Command: graph) - Displays a graph over time of the amount of water
 
 Project Breakdown:
   
-Patin - Graph and Water Pump
+Patin - Graph, Internal Data storage, Water Pump, Structure (3D printed parts), Water level sensor
   
 Arjun - Moisture Sensor and Shell
