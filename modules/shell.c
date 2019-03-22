@@ -18,7 +18,14 @@ static const command_t commands[] = {
     {"echo",   "<cmd> echos the user input to the screen", cmd_echo},
     {"reboot",   "<cmd> resets the pi and reboots the bootloader", cmd_reboot},
     {"peek",   "<cmd> displays the value at a memory address", cmd_peek},
-    {"poke",   "<cmd> modifies the value at a memory address", cmd_poke}
+    {"poke",   "<cmd> modifies the value at a memory address", cmd_poke},
+    {"graph",   "<cmd> displays a real-time graph of water levels remaining", cmd_waterGraph}, 
+    {"stop",   "<cmd> stop autowatering the plant", cmd_stopWatering}, 
+    {"start",   "<cmd> starts auto watering the plant", cmd_startWatering},
+    {"water",   "<cmd> checks the current water levels remaining", cmd_checkWater},
+    {"moisture",   "<cmd> checks the current moisture of the plant", cmd_checkMoisture},
+    {"burst",   "<cmd> releases a burst of water", cmd_burst}
+
 };
 
 //Reboot Command - "resets the pi and reboots the bootloader"
@@ -274,11 +281,39 @@ static int tokenize(const char *line, char *array[])
     return ntokens;
 }
 
+int cmd_waterGraph(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
 
+int cmd_stopWatering(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
 
-//openGraph
-//WaterPlant
-//stopWatering
-//StartWatering
-//Check Water Level
-//Check soil moisture
+int cmd_startWatering(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
+
+int cmd_checkWater(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
+
+int cmd_checkMoisture(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
+
+int cmd_burst(int argc, const char *argv[]) 
+{
+    //
+    return 0;
+}
+
