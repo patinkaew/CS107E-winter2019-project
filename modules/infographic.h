@@ -1,6 +1,11 @@
 #ifndef INFOGRAPHIC_H
 #define INFOGRAPHIC_H
 
+/*
+ * Author: Patin Inkaew
+ * Date: Mar 2019 (CS 107E Winter 2019)
+ */
+
 #include <stdbool.h>
 #include "graph.h"
 

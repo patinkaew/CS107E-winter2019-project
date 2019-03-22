@@ -1,6 +1,11 @@
 #ifndef DATASET_H
 #define DATASET_H
 
+/*
+ * Author: Patin Inkaew
+ * Date: Mar 2019 (CS 107E Winter 2019)
+ */
+
 #include <stdint.h>
 
 typedef struct{

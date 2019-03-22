@@ -1,6 +1,11 @@
 #ifndef WATERLEVEL_H
 #define WATERLEVEL_H
 
+/*
+ * Author: Patin Inkaew
+ * Date: Mar 2019 (CS 107E Winter 2019)
+ */
+
 #include "gpio.h"
 
 #define WATERLEVEL_TRIG     GPIO_PIN5
