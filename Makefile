@@ -1,5 +1,5 @@
 NAME = main
-OBJECTS = modules/vector.o modules/markers.o modules/dataset.o modules/graph.o modules/waterlevel.o modules/table.o modules/sampler.o modules/infographic.o modules/shell.o
+OBJECTS = modules/vector.o modules/markers.o modules/dataset.o modules/graph.o modules/waterlevel.o modules/sampler.o modules/infographic.o modules/shell.o modules/keyboard.o
 CFLAGS  = -I$(CS107E)/include -g -Wall -Wpointer-arith
 CFLAGS += -Og -std=c99 -ffreestanding
 CFLAGS += -mapcs-frame -fno-omit-frame-pointer -mpoke-function-name

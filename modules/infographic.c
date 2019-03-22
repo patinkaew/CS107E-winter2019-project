@@ -30,14 +30,14 @@ void infographic_init(infographic_info_t info){
             dev -> laptime_gl_max = dev -> gl_max;
         break;
     }
-    /*if(dev -> use_table){
+    /*if(dev -> use_table){ //has to implement
         table_init();
-    }*/
+    } */
     if(dev -> use_graph){
         graph_info_t plot_info = {{(dev -> graph_gl_min).x + 8, (dev -> graph_gl_min).y + 8},
                                     {(dev -> graph_gl_max).x - 8, (dev -> graph_gl_max).y - 8}, true,
-                                    {(dev -> graph_gl_min).x + 816, (dev -> graph_gl_max).y - 16}, true, 1,
-                                    "", false, true, "", false, 4, true, "", false, 4};
+                                    {(dev -> graph_gl_min).x + 16, (dev -> graph_gl_max).y - 16}, true, 1,
+                                    "", false, true, "", false, 16, true, "", false, 16};
         graph_init(plot_info);
         graph_enable_auto_shift();
     }
@@ -46,7 +46,7 @@ void infographic_init(infographic_info_t info){
 bool infographic_update_screen(){
     gl_clear(GL_BLACK);
     bool rslt = true;
-    /*if(dev -> use_table){
+    /*if(dev -> use_table){ //has to implement
         //rslt = rslt && table_update_screen();
     }*/
     if(dev -> use_graph){

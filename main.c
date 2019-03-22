@@ -18,18 +18,14 @@ void main(void){
     dataset_init();
     keyboard_init(KEYBOARD_CLOCK, KEYBOARD_DATA);
     keyboard_use_interrupts();
-    printf("finishing keyboard\n");
     shell_init(printf);
-    printf("finishing shell\n");
     sampler_init(ONE_SEC);
-    printf("finishing sampler\n");
     infographic_info_t ig_info = {true, true, true, 3, {8, 8}, {1016, 760}};
     infographic_init(ig_info);
     interrupts_global_enable(); // everything fully initialized, now turn on interrupts
-    printf("finishing info\n");
     timer_delay(2); //wait to get first data
-    graph_add_dataset(dataset_get_dataset(0), dataset_get_dataset(2), 2, GL_AMBER, GL_GREEN);
-    printf("finishing init\n");
+    graph_add_dataset(dataset_get_dataset(0), dataset_get_dataset(2), 1, GL_GREEN, GL_AMBER);
     infographic_update_screen();
+    gl_swap_buffer();
     shell_run();
 }
