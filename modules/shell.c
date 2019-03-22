@@ -12,6 +12,11 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+/*
+ * Author: Arjun Karanum, Patin Inkaew
+ * Date: Mar 2019 (CS 107E Winter 2019)
+ */
+
 #define LINE_LEN 80
 
 static int (*shell_printf)(const char * format, ...);

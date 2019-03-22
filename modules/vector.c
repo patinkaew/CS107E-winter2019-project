@@ -4,6 +4,11 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/*
+ * Author: Patin Inkaew
+ * Date: Mar 2019 (CS 107E Winter 2019)
+ */
+
 static struct vector_info {
     int size;
     int capacity;
