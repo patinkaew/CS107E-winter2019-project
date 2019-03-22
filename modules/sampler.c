@@ -21,6 +21,7 @@ static bool sampler_handler(unsigned int pc){
         dataset_add_data(0, timer_get_ticks() / ONE_SEC); //time stamp in sec
         //dataset_add_data(1, ); //moisture
         dataset_add_data(2, waterlevel_get_percent()); //water level
+        dataset_add_data(3, timer_get_ticks() % 10 + 10); //for demo
         return true;
     }
     return false;

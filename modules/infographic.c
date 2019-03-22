@@ -37,7 +37,7 @@ void infographic_init(infographic_info_t info){
         graph_info_t plot_info = {{(dev -> graph_gl_min).x + 8, (dev -> graph_gl_min).y + 8},
                                     {(dev -> graph_gl_max).x - 8, (dev -> graph_gl_max).y - 8}, true,
                                     {(dev -> graph_gl_min).x + 16, (dev -> graph_gl_max).y - 16}, true, 1,
-                                    "", false, true, "", false, 16, true, "", false, 16};
+                                    "", false, true, "", false, 16, true, "", false, 8};
         graph_init(plot_info);
         graph_enable_auto_shift();
     }

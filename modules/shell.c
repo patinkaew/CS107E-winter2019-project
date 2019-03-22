@@ -332,7 +332,7 @@ int cmd_startWatering(int argc, const char *argv[])
 
 int cmd_checkWater(int argc, const char *argv[])
 {
-    shell_printf("The Current Water Height is: %d\n", waterlevel_get_percent());
+    shell_printf("The Current Water Level is: %d\n", waterlevel_get_percent());
     return 0;
 }
 

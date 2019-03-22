@@ -209,6 +209,9 @@ static bool graph_update_data_plot(struct plot_set_t *plot_set, bool *need_shift
         unsigned int dp_y = vector_get(data_y, i);
         int gl_x = (graph_info -> gl_origin).x + (dp_x * (graph_info -> x_scaling));
         int gl_y = (graph_info -> gl_origin).y - (dp_y * (graph_info -> y_scaling)); //y is opposite
+        if(gl_x >= (graph_info -> gl_max).x){
+            *need_shift = true;
+        }
         int marker_width = markers_get_width();
         int marker_size = markers_get_size();
         unsigned char buf[marker_size];
@@ -224,8 +227,6 @@ static bool graph_update_data_plot(struct plot_set_t *plot_set, bool *need_shift
                     int y = marker_y + (j / marker_width);
                     if(is_in_bound(x, y)){
                         gl_draw_pixel(x, y, plot_set -> marker_color);
-                    }else{
-                        *need_shift = true;
                     }
                 }
             }
@@ -256,7 +257,7 @@ bool graph_update_screen(){
     }
 
     if(need_shift && auto_shift){
-        point_t new_origin = {(graph_info -> gl_origin).x - (5 * graph_info -> x_scaling), (graph_info -> gl_origin).y};
+        point_t new_origin = {(graph_info -> gl_origin).x - (8 * graph_info -> x_scaling), (graph_info -> gl_origin).y};
         graph_set_origin(new_origin, graph_info -> origin_marker);
     }
 
