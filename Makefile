@@ -1,9 +1,5 @@
 NAME = main
-<<<<<<< HEAD
-OBJECTS = modules/vector.o modules/markers.o modules/dataset.o modules/graph.o modules/waterlevel.o modules/table.o modules/sampler.o modules/infographic.o
-=======
-OBJECTS = modules/vector.o modules/markers.o modules/dataset.o modules/graph.o modules/waterlevel.o modules/moisture.o
->>>>>>> b7df82336604a77702c31716d8dc44c4702cda95
+OBJECTS = modules/vector.o modules/markers.o modules/dataset.o modules/graph.o modules/waterlevel.o modules/table.o modules/sampler.o modules/infographic.o modules/moisture.o
 CFLAGS  = -I$(CS107E)/include -g -Wall -Wpointer-arith
 CFLAGS += -Og -std=c99 -ffreestanding
 CFLAGS += -mapcs-frame -fno-omit-frame-pointer -mpoke-function-name
