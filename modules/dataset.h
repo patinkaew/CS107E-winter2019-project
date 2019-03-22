@@ -24,4 +24,8 @@ void dataset_add_list(int label, uintptr_t* list);
 
 void dataset_add_data(int label, uintptr_t data_addr);
 
+void dataset_remove_list(int label, uintptr_t* list);
+
+void dataset_remove_data(int label, uintptr_t data_addr);
+
 #endif //close DATASET_H

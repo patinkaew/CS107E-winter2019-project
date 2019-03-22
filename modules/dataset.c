@@ -78,3 +78,7 @@ void dataset_add_data(int label, uintptr_t data_addr){
     new_list = vector_add(new_list, data_addr);
     dataset_add_list(label, new_list);
 }
+
+void dataset_remove_list(int label, uintptr_t* list);
+
+void dataset_remove_data(int label, uintptr_t data_addr);

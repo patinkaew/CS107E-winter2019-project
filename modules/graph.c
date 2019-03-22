@@ -10,7 +10,7 @@
 #include <stdint.h>
 
 /*
- * Global variables for graphic
+ * Global variables for graph module
  */
 static color_t bg_color = GL_BLACK, info_color = GL_WHITE;
 static graph_info_t *graph_info;
@@ -77,7 +77,66 @@ void graph_hide_origin(){
     graph_info -> show_origin = false;
 }
 
-/* internal buffer management*/
+void graph_show_axis(enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> show_x_axis = true;
+    }else if(axis == Y_AXIS){
+        graph_info -> show_y_axis = true;
+    }
+}
+
+void graph_hide_axis(enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> show_x_axis = false;
+    }else if(axis == Y_AXIS){
+        graph_info -> show_y_axis = false;
+    }
+}
+
+void graph_set_graph_label(char* name){
+    graph_info -> graph_label = name;
+}
+
+void graph_show_graph_label(){
+    graph_info -> show_graph_label = true;
+}
+
+void graph_hide_graph_label(){
+    graph_info -> show_graph_label = false;
+}
+
+void graph_set_axis_label(char* name, enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> x_axis_label = name;
+    }else if(axis == Y_AXIS){
+        graph_info -> y_axis_label = name;
+    }
+}
+
+void graph_show_axis_label(enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> show_x_axis_label = true;
+    }else if(axis == Y_AXIS){
+        graph_info -> show_y_axis_label = true;
+    }
+}
+
+void graph_hide_axis_label(enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> show_x_axis_label = false;
+    }else if(axis == Y_AXIS){
+        graph_info -> show_y_axis_label = false;
+    }
+}
+
+void graph_set_axis_scaling(int scaling, enum axes axis){
+    if(axis == X_AXIS){
+        graph_info -> x_scaling = scaling;
+    }else if(axis == Y_AXIS){
+        graph_info -> y_scaling = false;
+    }
+}
+
 void graph_add_dataset(uintptr_t* data_set, int marker_style, color_t marker_color, color_t line_color){
     struct plot_set_t* new_plot = malloc(sizeof(struct plot_set_t));
     new_plot -> marker_style = marker_style;
@@ -87,8 +146,15 @@ void graph_add_dataset(uintptr_t* data_set, int marker_style, color_t marker_col
     plot_sets = vector_add(plot_sets, (uintptr_t)new_plot);
 }
 
-void plot_remove_dataset(uintptr_t* data_set){
-
+void graph_remove_dataset(uintptr_t* data_set){
+    int size = vector_size(plot_sets);
+    for(int i = 0; i < size; i++){
+        struct plot_set_t * curr = (struct plot_set_t*)vector_get(plot_sets, i);
+        if(curr -> data_set == data_set){
+            free(curr);
+            vector_remove(plot_sets, i);
+        }
+    }
 }
 
 static inline bool is_in_bound(int x, int y){
@@ -126,7 +192,7 @@ static inline void graph_update_drawspace(){
     }
 }
 
-static inline void graph_update_data_plot(struct plot_set_t *plot_set){
+static void graph_update_data_plot(struct plot_set_t *plot_set){
     uintptr_t* data_points = ((data_set_t*)(plot_set -> data_set)) -> list;
     int data_size = vector_size(data_points);
     int last_gl_x = 0, last_gl_y = 0;
@@ -139,7 +205,9 @@ static inline void graph_update_data_plot(struct plot_set_t *plot_set){
         unsigned char buf[marker_size];
         int marker_x = gl_x - marker_width/2;
         int marker_y = gl_y - (markers_get_height())/2;
-        if(markers_get_marker(plot_set -> marker_style, buf, marker_size)){ //draw data point
+
+        //draw data point
+        if(markers_get_marker(plot_set -> marker_style, buf, marker_size)){
             for(int j = 0; j < marker_size; j++){
                 if(buf[j] == 0xff){
                     //draw with given color
@@ -162,7 +230,7 @@ static inline void graph_update_data_plot(struct plot_set_t *plot_set){
 }
 
 void graph_update_screen(){
-    gl_clear(bg_color);
+    gl_draw_rect((graph_info->gl_min).x, (graph_info->gl_min).y, (graph_info->gl_max).x, (graph_info->gl_max).y, bg_color);
     graph_update_drawspace();
     int size = vector_size(plot_sets);
     for(int i = 0; i < size; i++){
