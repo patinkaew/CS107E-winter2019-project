@@ -4,6 +4,8 @@
 #include "malloc.h"
 #include "strings.h"
 #include <stdint.h>
+#include "gpio.h"
+#include "waterlevel"
 
 #define LINE_LEN 80
 
@@ -301,7 +303,8 @@ int cmd_startWatering(int argc, const char *argv[])
 
 int cmd_checkWater(int argc, const char *argv[]) 
 {
-    //
+    int height = waterlevel_get_tank_height();
+    shell_printf("The Current Water Height is: %d", height);
     return 0;
 }
 
@@ -313,7 +316,9 @@ int cmd_checkMoisture(int argc, const char *argv[])
 
 int cmd_burst(int argc, const char *argv[]) 
 {
-    //
+    gpio_set_output(17);
+    timer_delay(2);
+    gpio_set_input(17);
     return 0;
 }
 
