@@ -1,1 +1,4 @@
-https://www.thingiverse.com/thing:546427
+Project: Automated Garden
+Members: Patin and Arjun
+
+
