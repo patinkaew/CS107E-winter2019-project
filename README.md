@@ -16,6 +16,13 @@ Check Water (Command: water) - Reports the water contents of the water tank as m
 Burst (Command: burst) - Briefly sprays a blast of water through the water pump.  
 Water Graph (Command: graph) - Displays a graph over time of the amount of water remaining in the water container, reminding the user to refill it once it becomes empty.  
 
+For display, you can add various data type, such as soil moisture, water level, and humidity and the program will plot those data at the same time. The graph can automically shift itself to display the new data. The monitor also show the lap time at the bottom left. Graph is fully customizable. Sensor sampler will measure value from various attached sensor every given time. Data will be stored in the pi and graph can take these data and plot it in real time.
+
+From the hardware side, the model is 3d printer. Parts can be connected in various orientation like lego parts.
+This is to match your own style! 
+
+
+
 Project Breakdown:
   
 Patin - Graph, Internal Data storage, Water Pump, Structure (3D printed parts), Water level sensor, Sensor Sampler
