@@ -16,7 +16,8 @@ Check Water (Command: water) - Reports the water contents of the water tank as m
 Burst (Command: burst) - Briefly sprays a blast of water through the water pump.  
 Water Graph (Command: graph) - Displays a graph over time of the amount of water remaining in the water container, reminding the user to refill it once it becomes empty.  
 
-Project Breakdown:  
+Project Breakdown:
+  
 Patin - Graph and Water Pump
   
 Arjun - Moisture Sensor and Shell
