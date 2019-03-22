@@ -42,15 +42,6 @@ typedef struct{
 }point_t;
 
 /*
- * 'data_point_t' stores the relative x and y value from input data
- */
-typedef struct{
-    float x;
-    float y;
-}data_point_t;
-
-
-/*
  * 'graph_info_t' store all customizable functionalities of graph module
  */
 typedef struct{
@@ -180,18 +171,18 @@ void graph_set_axis_scaling(int scaling, enum axes axis);
 /*
  * Add dataset to be plotted
  */
-void graph_add_dataset(uintptr_t* data_set, int marker_style, color_t marker_color, color_t line_color);
+void graph_add_dataset(uintptr_t* data_set_x, uintptr_t* data_set_y, int marker_style, color_t marker_color, color_t line_color);
 
 /*
  * Remove dataset to be plotted
  * This function does not delete the actual data. Data is still in the memory, but it is not plotted
  */
-void graph_remove_dataset(uintptr_t* data_set);
+void graph_remove_dataset(uintptr_t* data_set_x, uintptr_t* data_set_y);
 
 /*
  * Redraw the entire graph
  * This function must be called to see changes
  */
-void graph_update_screen();
+bool graph_update_screen();
 
 #endif //GRAPH_H

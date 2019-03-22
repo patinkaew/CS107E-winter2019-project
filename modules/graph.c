@@ -19,7 +19,8 @@ static struct plot_set_t{
     int marker_style;
     color_t marker_color;
     color_t line_color;
-    uintptr_t *data_set;
+    uintptr_t *data_set_x;
+    uintptr_t *data_set_y;
 };
 
 static uintptr_t* plot_sets;
@@ -137,20 +138,21 @@ void graph_set_axis_scaling(int scaling, enum axes axis){
     }
 }
 
-void graph_add_dataset(uintptr_t* data_set, int marker_style, color_t marker_color, color_t line_color){
+void graph_add_dataset(uintptr_t* data_set_x, uintptr_t* data_set_y, int marker_style, color_t marker_color, color_t line_color){
     struct plot_set_t* new_plot = malloc(sizeof(struct plot_set_t));
     new_plot -> marker_style = marker_style;
     new_plot -> marker_color = marker_color;
     new_plot -> line_color = line_color;
-    new_plot -> data_set = data_set;
+    new_plot -> data_set_x = data_set_x;
+    new_plot -> data_set_y = data_set_y;
     plot_sets = vector_add(plot_sets, (uintptr_t)new_plot);
 }
 
-void graph_remove_dataset(uintptr_t* data_set){
+void graph_remove_dataset(uintptr_t* data_set_x, uintptr_t* data_set_y){
     int size = vector_size(plot_sets);
     for(int i = 0; i < size; i++){
         struct plot_set_t * curr = (struct plot_set_t*)vector_get(plot_sets, i);
-        if(curr -> data_set == data_set){
+        if(curr -> data_set_x == data_set_x && curr -> data_set_y == data_set_y){
             free(curr);
             vector_remove(plot_sets, i);
         }
@@ -192,14 +194,20 @@ static inline void graph_update_drawspace(){
     }
 }
 
-static void graph_update_data_plot(struct plot_set_t *plot_set){
-    uintptr_t* data_points = ((data_set_t*)(plot_set -> data_set)) -> list;
-    int data_size = vector_size(data_points);
+static bool graph_update_data_plot(struct plot_set_t *plot_set){
+    uintptr_t* data_x = ((data_set_t*)(plot_set -> data_set_x)) -> list;
+    uintptr_t* data_y = ((data_set_t*)(plot_set -> data_set_y)) -> list;
+    int data_size = vector_size(data_x);
+    if(data_size != vector_size(data_y)){
+        return false;
+    }
+
     int last_gl_x = 0, last_gl_y = 0;
     for(int i = 0; i < data_size; i++){
-        data_point_t *dp = (data_point_t*)vector_get(data_points, i);
-        int gl_x = (graph_info -> gl_origin).x + ((dp -> x)* (graph_info -> x_scaling));
-        int gl_y = (graph_info -> gl_origin).y - ((dp -> y)* (graph_info -> y_scaling)); //y is opposite
+        unsigned int dp_x = vector_get(data_x, i);
+        unsigned int dp_y = vector_get(data_y, i);
+        int gl_x = (graph_info -> gl_origin).x + (dp_x * (graph_info -> x_scaling));
+        int gl_y = (graph_info -> gl_origin).y - (dp_y * (graph_info -> y_scaling)); //y is opposite
         int marker_width = markers_get_width();
         int marker_size = markers_get_size();
         unsigned char buf[marker_size];
@@ -214,6 +222,7 @@ static void graph_update_data_plot(struct plot_set_t *plot_set){
                     int x = marker_x + (j % marker_width);
                     int y = marker_y + (j / marker_width);
                     if(is_in_bound(x, y)){
+
                         gl_draw_pixel(x, y, plot_set -> marker_color);
                     }
                 }
@@ -227,14 +236,19 @@ static void graph_update_data_plot(struct plot_set_t *plot_set){
         last_gl_x = gl_x;
         last_gl_y = gl_y;
     }
+    return true;
 }
 
-void graph_update_screen(){
+bool graph_update_screen(){
+    bool rslt = true;
+
+    //clean drawspace
     gl_draw_rect((graph_info->gl_min).x, (graph_info->gl_min).y, (graph_info->gl_max).x, (graph_info->gl_max).y, bg_color);
     graph_update_drawspace();
     int size = vector_size(plot_sets);
     for(int i = 0; i < size; i++){
-        graph_update_data_plot((struct plot_set_t*)vector_get(plot_sets, i));
+        rslt = rslt && graph_update_data_plot((struct plot_set_t*)vector_get(plot_sets, i));
     }
-    gl_swap_buffer();
+
+    return rslt;
 }

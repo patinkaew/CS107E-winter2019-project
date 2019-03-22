@@ -2,7 +2,6 @@
 #include "timer.h"
 #include "gpio.h"
 #include "gpioextra.h"
-#include "printf.h"
 
 unsigned int TRIG, ECHO;
 unsigned int tank_height = DEFAULT_TANK_HEIGHT;
@@ -14,14 +13,15 @@ static unsigned int waterlevel_get_distance(void) {
 	gpio_write(TRIG, 0);
 
 	unsigned start = timer_get_ticks();
-	timer_delay_us(29);
+	timer_delay_us(13);
 	while(!gpio_read(ECHO));
 
 	unsigned end;
 	while(gpio_read(ECHO) == 1);
 	end = timer_get_ticks();
 
-	return (end - start) / 29; //2.941176 us = time to go one mm
+	unsigned int result = (end - start) / 12; //2.941176 us = time to go one mm
+	return result < 1200 ? result : 0;
 }
 
 void waterlevel_init(int trig, int echo){
@@ -43,7 +43,6 @@ void waterlevel_calibrate_tank_height(){
     for(int i = 0; i < 3; i++){
         sum_height += waterlevel_get_distance();
     }
-	printf("%d\n", sum_height);
     tank_height = sum_height / 3;
 }
 
